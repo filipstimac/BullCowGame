@@ -1,3 +1,6 @@
+/* 
+*/
+
 #pragma once
 #include<string>
 
@@ -28,11 +31,14 @@ public:
 	EGuessStatus CheckGuessValidity(FString Guess) const;
 	
 	void Reset(); //TODO return value
-	FBullCowCount SubmitGuess(FString Guess);
+	FBullCowCount SubmitValidGuess(FString Guess);
 
 private:
-	int32 MyMaxTries;
 	int32 MyCurrentTry;
 	FString MyHiddenWord;
+	bool bIsGameWon;
+
+	bool IsISogram(FString Guess) const;
+	bool IsLowercase(FString Guess) const;
 
 };
